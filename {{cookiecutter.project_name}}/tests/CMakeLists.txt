@@ -1,8 +1,5 @@
 # tests 디렉토리 CMakeLists.txt
 
-# CTest 활성화
-enable_testing()
-
 # Google Test 다운로드 및 설정
 include(FetchContent)
 FetchContent_Declare(
