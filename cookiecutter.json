@@ -1,0 +1,26 @@
+{
+    "project_name": "MyCppLibrary",
+    "project_description": "A modern C++ project with CMake, Google Test, and examples",
+    "author_name": "Your Name",
+    "library_name": "my_library",
+    "version": "1.0.0",
+    "cpp_standard": [
+        "20",
+        "17",
+        "14"
+    ],
+    "use_google_test": [
+        "yes",
+        "no"
+    ],
+    "use_examples": [
+        "yes",
+        "no"
+    ],
+    "license": [
+        "MIT",
+        "Apache-2.0",
+        "BSD-3-Clause",
+        "None"
+    ]
+}
