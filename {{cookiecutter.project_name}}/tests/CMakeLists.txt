@@ -27,8 +27,13 @@ foreach(TEST_SOURCE ${TEST_SOURCES})
     target_compile_features(${TEST_NAME} PRIVATE cxx_std_20)
 
     # src 라이브러리가 존재하면 링크
-    if(TARGET ${PROJECT_NAME}_lib)
-        target_link_libraries(${TEST_NAME} PRIVATE ${PROJECT_NAME}_lib)
+    # 프로젝트 이름에서 하이픈을 밑줄로 변환하여 라이브러리 타겟 이름 생성
+    string(REPLACE "-" "_" SAFE_TARGET_NAME ${PROJECT_NAME})
+    set(TARGET_LIB_NAME ${SAFE_TARGET_NAME}_lib)    
+
+    # src 라이브러리가 존재하면 링크
+    if(TARGET ${TARGET_LIB_NAME})
+        target_link_libraries(${TEST_NAME} PRIVATE ${TARGET_LIB_NAME})
         target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
     endif()
 
