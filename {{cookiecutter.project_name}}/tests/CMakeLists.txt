@@ -53,7 +53,10 @@ endif()
 
 # 테스트 타겟 추가 (모든 테스트를 한 번에 실행)
 if(TEST_SOURCES)
-    add_custom_target(run_tests
+    string(REPLACE "-" "_" SAFE_TARGET_NAME ${PROJECT_NAME})
+    set(TARGET_TEST_NAME ${SAFE_TARGET_NAME}_tests)  
+
+    add_custom_target(${TARGET_TEST_NAME}
         COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
         DEPENDS ${TEST_SOURCES}
         COMMENT "Running all tests"
